@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1 >UPLOADING FILE </h1>
+<form method="post" enctype="multipart/form-data" action='/'>
+  <input type="file" name="filename"/>
+  <input type="submit" value="upload">
+</form>
+<p>No of times files are uploaded : {{c1}}</p>
+<br>
+<p>No of times files downloaded : {{c2}}</p>
+<br>
+<p>Names of the files uploaded so far </p>
+<ul>
+{{#each some}}
+  <li>{{this}}<button onclick="a()">Download</button></li>
+{{/each}}
+</ul>
+<script>
+var a=()=>window.open('/download');
+</script>
+</body>
+</html>
