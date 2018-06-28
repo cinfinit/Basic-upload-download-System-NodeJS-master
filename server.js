@@ -10,6 +10,7 @@ var game='something';
 var counter=0;
 var counter1=0;
 var some=[];
+var dirr;
 app.get('/',(req,res)=>{
   res.render('initialindex.hbs',{some:some,c2:counter1,c1:counter});
 });
@@ -19,7 +20,14 @@ app.post('/',(req,res)=>{
     var f=req.files.filename.name;
     game=f;
     //console.log(game);
-    file.mv("./newfiles/"+f,(error)=>{
+    dirr=f;
+    if(!fs.existsSync(dirr)){
+      fs.mkdirSync(dirr);
+    }
+    else{
+      dirr=f;
+    }
+    file.mv("./"+dirr+"/"+f,(error)=>{
     // instead of "newfiles" you need to location of your directory
     //where you need to move the file
       counter++;
