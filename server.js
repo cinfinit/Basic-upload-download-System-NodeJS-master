@@ -54,7 +54,9 @@ app.post('/',(req,res)=>{
 //for downloading we provided path of the file along with its name;
 app.get('/download',(req,res)=>{
   counter1++;
-  var file=__dirname+'/newfiles/'+game;
+  //var file=__dirname+'/newfiles/'+game;
+  var file="./"+dirr+"/"+game;
+  
   res.download(file,game);
 
   console.log(counter1);
